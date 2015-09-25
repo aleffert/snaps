@@ -10,6 +10,10 @@
 		77176C4C1BB431DB00431544 /* Dials_SnapKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 77176C4B1BB431DB00431544 /* Dials_SnapKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77176C4E1BB4335100431544 /* DLSViewsPlugin+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77176C491BB430FD00431544 /* DLSViewsPlugin+SnapKit.swift */; settings = {ASSET_TAGS = (); }; };
 		77176C521BB4369100431544 /* ConstraintsEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77176C511BB4369100431544 /* ConstraintsEditorController.swift */; settings = {ASSET_TAGS = (); }; };
+		77C0BA4C1BB4EFB500B45137 /* ConstraintsEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C0BA4B1BB4EFB500B45137 /* ConstraintsEditorView.xib */; settings = {ASSET_TAGS = (); }; };
+		77C0BA4F1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0BA4E1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m */; settings = {ASSET_TAGS = (); }; };
+		77C0BA511BB4F1AE00B45137 /* DLSSnapKitConstraintEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 77C0BA4E1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m */; settings = {ASSET_TAGS = (); }; };
+		77C0BA791BB4F60500B45137 /* DLSSnapKitConstraintEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C0BA4D1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EEC9151B6579CD00D9A575 /* Dials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EEC9141B6579CD00D9A575 /* Dials.framework */; };
 		D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0583522DD4F3AC4A36041279 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -23,6 +27,10 @@
 		77176C4F1BB4364A00431544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Desktop/Info.plist; sourceTree = SOURCE_ROOT; };
 		77176C511BB4369100431544 /* ConstraintsEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstraintsEditorController.swift; path = Desktop/ConstraintsEditorController.swift; sourceTree = SOURCE_ROOT; };
 		77176C531BB4372E00431544 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Desktop/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
+		77C0BA4B1BB4EFB500B45137 /* ConstraintsEditorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConstraintsEditorView.xib; path = Desktop/ConstraintsEditorView.xib; sourceTree = SOURCE_ROOT; };
+		77C0BA4D1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLSSnapKitConstraintEditor.h; path = Shared/DLSSnapKitConstraintEditor.h; sourceTree = "<group>"; };
+		77C0BA4E1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLSSnapKitConstraintEditor.m; path = Shared/DLSSnapKitConstraintEditor.m; sourceTree = "<group>"; };
+		77C0BA521BB4F25A00B45137 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = iOS/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
 		77E2FFB11B642AE800A95664 /* SnapDials_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SnapDials_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E2FFB51B642AE800A95664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77EEC9141B6579CD00D9A575 /* Dials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dials.framework; path = "Pods/Dials/build/Debug-iphoneos/Dials.framework"; sourceTree = "<group>"; };
@@ -62,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				77176C491BB430FD00431544 /* DLSViewsPlugin+SnapKit.swift */,
+				77C0BA521BB4F25A00B45137 /* BridgingHeader.h */,
 				77176C501BB4365000431544 /* Supporting Files */,
 			);
 			name = iOS;
@@ -76,9 +85,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		77C0BA501BB4F1A400B45137 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				77C0BA4D1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.h */,
+				77C0BA4E1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
 		77E2FFA71B642AE800A95664 = {
 			isa = PBXGroup;
 			children = (
+				77C0BA501BB4F1A400B45137 /* Shared */,
 				77E2FFB31B642AE800A95664 /* Desktop */,
 				77176C441BB3B5D900431544 /* iOS */,
 				77E2FFB21B642AE800A95664 /* Products */,
@@ -99,6 +118,7 @@
 		77E2FFB31B642AE800A95664 /* Desktop */ = {
 			isa = PBXGroup;
 			children = (
+				77C0BA4B1BB4EFB500B45137 /* ConstraintsEditorView.xib */,
 				77176C511BB4369100431544 /* ConstraintsEditorController.swift */,
 				77176C531BB4372E00431544 /* BridgingHeader.h */,
 				77176C4B1BB431DB00431544 /* Dials_SnapKit.h */,
@@ -133,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77176C4C1BB431DB00431544 /* Dials_SnapKit.h in Headers */,
+				77C0BA791BB4F60500B45137 /* DLSSnapKitConstraintEditor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C0BA4C1BB4EFB500B45137 /* ConstraintsEditorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C0BA4F1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.m in Sources */,
 				77176C521BB4369100431544 /* ConstraintsEditorController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77C0BA511BB4F1AE00B45137 /* DLSSnapKitConstraintEditor.m in Sources */,
 				77176C4E1BB4335100431544 /* DLSViewsPlugin+SnapKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +457,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = iOS/BridgingHeader.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -451,6 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = iOS/BridgingHeader.h;
 			};
 			name = Release;
 		};

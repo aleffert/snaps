@@ -6,5 +6,4 @@
 //  Copyright © 2015 Akiva Leffert. All rights reserved.
 //
 
-#import "DLSSnapKitConstraintEditor.h"
-#import "Editor.h"
+#import <SnapDials_iOS/DLSSnapKitConstraintEditor.h>

@@ -13,11 +13,25 @@ class ConstraintsEditorController : NSObject, EditorController {
     weak var delegate : EditorControllerDelegate?
     var configuration : EditorConfiguration?
     
+    @IBOutlet private var editorView : NSView!
+    
+    override init() {
+        super.init()
+        let bundle = NSBundle(forClass: ConstraintsEditorController.classForCoder())
+        bundle.loadNibNamed("ConstraintsEditorView", owner: self, topLevelObjects: nil)
+    }
+    
     var readOnly : Bool {
         return true
     }
     
     var view : NSView {
-        return NSView(frame : NSRect(x : 0, y : 0, width : 100, height : 100))
+        return editorView!
+    }
+}
+
+extension DLSSnapKitConstraintEditor : EditorControllerGenerating {
+    public func generateController() -> EditorController {
+        return ConstraintsEditorController()
     }
 }

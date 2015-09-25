@@ -96,18 +96,7 @@ class DLSConstraintDescription : NSObject, NSCoding {
     }
 }
 
-class DLSSnapKitConstraintEditor : NSObject, DLSEditor {
-    override init() {
-        super.init()
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init()
-    }
-    
-    func encodeWithCoder(encoder : NSCoder) {
-    }
-}
+
 
 
 private func extractConstraintsFromView(view : UIView) -> [DLSConstraintDescription] {
@@ -146,7 +135,7 @@ class DLSSnapKitConstraintsExchanger : DLSValueExchanger {
 }
 
 extension DLSViewsPlugin {
-    func addSnapKitSupport() {
+    public func enableSnapKitSupport() {
         self.addExtraViewDescriptionForClass(UIView.classForCoder()) {context in
             context.addGroupWithName("Constraints", properties:
                 [
