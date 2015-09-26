@@ -20,7 +20,7 @@ test:
           -reporter pretty
           -reporter junit:$CIRCLE_TEST_REPORTS/xcode/ios-results.xml
           -reporter plain:$CIRCLE_ARTIFACTS/ios-xctool.log
-          -sdk iphonesimulator
+          -sdk macosx
           -workspace "Snaps.xcworkspace"
           -scheme "Dials.app + Snaps"
           build
