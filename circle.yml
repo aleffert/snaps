@@ -5,6 +5,7 @@ dependencies:
     pre:
         - brew update 
         - brew upgrade xctool
+        - pod install
 test:
     override:
         - xctool
