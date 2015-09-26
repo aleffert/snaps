@@ -23,6 +23,7 @@
         DLSDecodeObject(aDecoder, constraintID);
         DLSDecodeObject(aDecoder, locationFile);
         DLSDecodeInteger(aDecoder, locationLine);
+        DLSDecodeObject(aDecoder, relation);
         DLSDecodeObject(aDecoder, sourceClass);
         DLSDecodeObject(aDecoder, sourceViewID);
         DLSDecodeObject(aDecoder, sourceAttribute);
@@ -42,6 +43,7 @@
     DLSEncodeObject(aCoder, constraintID);
     DLSEncodeObject(aCoder, locationFile);
     DLSEncodeInteger(aCoder, locationLine);
+    DLSEncodeObject(aCoder, relation);
     DLSEncodeObject(aCoder, sourceClass);
     DLSEncodeObject(aCoder, sourceViewID);
     DLSEncodeObject(aCoder, sourceAttribute);
@@ -51,6 +53,20 @@
     DLSEncodeDouble(aCoder, constant);
     DLSEncodeDouble(aCoder, multiplier);
     DLSEncodeBool(aCoder, active);
+}
+
+- (BOOL)isEqual:(id)object {
+    if([object isKindOfClass:[DLSConstraintDescription class]]) {
+        DLSConstraintDescription* description = object;
+        return [description.constraintID isEqualToString:self.constraintID];
+    }
+    else {
+        return false;
+    }
+}
+
+- (NSUInteger)hash {
+    return self.constraintID.hash ^ self.constraintID.hash;
 }
 
 @end

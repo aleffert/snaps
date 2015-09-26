@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy, nonatomic, nullable) NSString* locationFile;
 @property (assign, nonatomic) NSUInteger locationLine;
 
+@property (copy, nonatomic) NSString* relation;
+
 @property (copy, nonatomic) NSString* sourceClass;
 @property (copy, nonatomic, nullable) NSString* sourceViewID;
 @property (copy, nonatomic) NSString* sourceAttribute;

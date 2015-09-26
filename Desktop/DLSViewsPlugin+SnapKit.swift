@@ -65,6 +65,16 @@ extension NSLayoutAttribute {
     }
 }
 
+extension NSLayoutRelation {
+    var portableValue: String {
+        switch self {
+        case .LessThanOrEqual: return "<="
+        case .Equal: return "="
+        case GreaterThanOrEqual: return ">="
+        }
+    }
+}
+
 extension DLSConstraintDescription {
     convenience init(constraint : LayoutConstraint, view : UIView) {
         self.init()
@@ -76,6 +86,8 @@ extension DLSConstraintDescription {
         destinationClass = destination?.dynamicType.description()
         label = constraint.snp_label
         locationFile = constraint.snp_constraint?.location?.file
+        locationLine = constraint.snp_constraint?.location?.line ?? 0
+        relation = constraint.relation.portableValue ?? "?="
         constant = constraint.constant
         multiplier = constraint.multiplier
         active = constraint.active

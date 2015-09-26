@@ -9,17 +9,10 @@
 import Foundation
 import Cocoa
 
-class ConstraintViewOwner : NSObject {
-    @IBOutlet private var constraintView : ConstraintView?
-}
-
-class ConstraintView : NSView {
-    @IBOutlet private var label : NSTextField!
-}
-
-class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner {
+class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner, ConstraintViewDelegate {
     weak var delegate : EditorControllerDelegate?
     var viewQuerier : ViewQuerier?
+    var lastConstraints : [DLSConstraintDescription] = []
     
     @IBOutlet private var editorView : NSView!
     @IBOutlet private var nothingLabel : NSView!
@@ -40,7 +33,7 @@ class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner
         return editorView!
     }
     
-    private func constraintDescription(description : DLSConstraintDescription) -> String {
+    private func firstPartOfConstraintDescription(description : DLSConstraintDescription) -> String {
         guard let source = viewQuerier?.nameForViewWithID(
             description.sourceViewID,
             relativeToView: description.affectedViewID,
@@ -49,6 +42,10 @@ class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner
             line: description.locationLine) else {
                 return "Internal Error"
         }
+        return "\(source).\(description.sourceAttribute)"
+    }
+    
+    private func secondPartOfConstraintDescription(description : DLSConstraintDescription) -> String {
         let dest = viewQuerier?.nameForViewWithID(
             description.destinationViewID,
             relativeToView: description.affectedViewID,
@@ -56,7 +53,7 @@ class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner
             file: description.locationFile,
             line: description.locationLine)
         if let destName = dest, destAttribute = description.destinationAttribute {
-            var result = "\(source).\(description.sourceAttribute) = \(destName).\(destAttribute)"
+            var result = "\(destName).\(destAttribute)"
             if description.multiplier != 1 {
                 result = result + " * \(description.multiplier)"
             }
@@ -66,25 +63,36 @@ class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner
             return result
         }
         else {
-            return "\(source).\(description.sourceAttribute) = \(description.constant)"
+            return "\(description.constant)"
         }
     }
     
     var configuration : EditorConfiguration? {
         didSet {
             if let constraints = configuration?.value as? [DLSConstraintDescription] where constraints.count > 0 {
+                
                 constraintStack.hidden = false
                 nothingLabel.hidden = true
+                
+                guard constraints != lastConstraints else {
+                    return
+                }
+                
+                lastConstraints = constraints
                 constraintStack.setViews([], inGravity: .Top)
                 
                 for constraint in constraints {
                     let owner = ConstraintViewOwner()
                     bundle.loadNibNamed("ConstraintView", owner: owner, topLevelObjects: nil)
                     if let view = owner.constraintView {
-                        view.translatesAutoresizingMaskIntoConstraints = false
+                        view.delegate = self
                         constraintStack.addView(view, inGravity: .Top)
-                        let message = constraintDescription(constraint)
-                        view.label.stringValue = message
+                        view.constraint = constraint
+                        view.fields = (
+                            first: firstPartOfConstraintDescription(constraint),
+                            relation: constraint.relation,
+                            second: secondPartOfConstraintDescription(constraint)
+                        )
                     }
                 }
             }
@@ -94,6 +102,19 @@ class ConstraintsEditorController : NSObject, EditorController, ViewQuerierOwner
             }
         }
     }
+    
+    func constraintView(constraintView: ConstraintView, clearedHighlightViewWithID viewID: String) {
+        self.viewQuerier?.clearHighlightForViewWithID(viewID)
+    }
+    
+    func constraintView(constraintView: ConstraintView, choseHighlightViewWithID viewID: String) {
+        self.viewQuerier?.highlightViewWithID(viewID)
+    }
+    
+    func constraintView(constraintView: ConstraintView, selectedViewWithID viewID: String) {
+        self.viewQuerier?.selectViewWithID(viewID)
+    }
+
 }
 
 extension DLSSnapKitConstraintEditor : EditorControllerGenerating {
