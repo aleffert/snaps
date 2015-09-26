@@ -1,0 +1,25 @@
+machine:
+    xcode:
+        version: "7.0"
+dependencies:
+    pre:
+        - brew update 
+        - brew upgrade xctool
+test:
+    override:
+        - xctool
+          -reporter pretty
+          -reporter junit:$CIRCLE_TEST_REPORTS/xcode/ios-results.xml
+          -reporter plain:$CIRCLE_ARTIFACTS/ios-xctool.log
+          -sdk iphonesimulator
+          -workspace "Snaps.xcworkspace"
+          -scheme "Snaps.framework - iOS"
+          build
+        - xctool
+          -reporter pretty
+          -reporter junit:$CIRCLE_TEST_REPORTS/xcode/ios-results.xml
+          -reporter plain:$CIRCLE_ARTIFACTS/ios-xctool.log
+          -sdk iphonesimulator
+          -workspace "Snaps.xcworkspace"
+          -scheme "Dials.app + Snaps"
+          build
