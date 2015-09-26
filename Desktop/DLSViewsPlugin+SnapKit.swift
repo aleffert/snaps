@@ -36,67 +36,51 @@ extension LayoutConstraint {
     }
 }
 
-class DLSConstraintDescription : NSObject, NSCoding {
-    let label : String?
-    
-    let sourceClass : String
-    let sourceAttribute : NSLayoutAttribute
-    let destinationClass : String?
-    let destinationAttribute : NSLayoutAttribute
-    
-    let constraintID : String
-    let location : SourceLocation?
-    let constant : CGFloat
-    let multiplier : CGFloat
-    let active : Bool
-    
-    init(constraint : LayoutConstraint, view : UIView) {
+extension NSLayoutAttribute {
+    var portableValue : String {
+        switch self {
+        case .Left: return "left"
+        case .Right: return "right"
+        case .Top: return "top"
+        case .Bottom: return "bottom"
+        case .Leading: return "leading"
+        case .Trailing: return "trailing"
+        case .Width: return "width"
+        case .Height: return "height"
+        case .CenterX: return "centerX"
+        case .CenterY: return "centerY"
+        case .Baseline: return "baseline"
+        case .FirstBaseline: return "firstBaseline"
+        case .LeftMargin: return "leftMargin"
+        case .RightMargin: return "rightMargin"
+        case .TopMargin: return "topMargin"
+        case .BottomMargin: return "bottomMargin"
+        case .LeadingMargin: return "leadingMargin"
+        case .TrailingMargin: return "trailingMargin"
+        case .CenterXWithinMargins: return "centerXWithinMargins"
+        case .CenterYWithinMargins: return "CenterYWithinMargins"
+        case .NotAnAttribute: return "notAnAttribute"
+        }
+    }
+}
+
+extension DLSConstraintDescription {
+    convenience init(constraint : LayoutConstraint, view : UIView) {
+        self.init()
         let source : AnyObject = constraint.firstItem
         let destination : AnyObject? = constraint.secondItem
         constraintID = constraint.dls_constraintID
         sourceClass = source.dynamicType.description()
         destinationClass = destination?.dynamicType.description()
         label = constraint.snp_label
-        location = constraint.snp_constraint?.location
+        locationFile = constraint.snp_constraint?.location?.file
         constant = constraint.constant
         multiplier = constraint.multiplier
         active = constraint.active
-        sourceAttribute = constraint.firstAttribute
-        destinationAttribute = constraint.secondAttribute
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        self.constraintID = aDecoder.decodeObjectForKey("constraintID") as? String ?? ""
-        self.sourceClass = aDecoder.decodeObjectForKey("sourceClass") as? String ?? ""
-        self.sourceAttribute = NSLayoutAttribute(rawValue: aDecoder.decodeIntegerForKey("sourceAttribute")) ?? .NotAnAttribute
-        
-        self.destinationClass = aDecoder.decodeObjectForKey("destinationClass") as? String ?? ""
-        self.destinationAttribute = NSLayoutAttribute(rawValue: aDecoder.decodeIntegerForKey("destinationAttribute")) ?? .NotAnAttribute
-        
-        self.label = aDecoder.decodeObjectForKey("label") as? String ?? ""
-        self.location = SourceLocation(serializedRepresentation:aDecoder.decodeObjectForKey("location") as? [String:AnyObject] ?? [:])
-        self.multiplier = CGFloat(aDecoder.decodeDoubleForKey("multiplier"))
-        self.constant = CGFloat(aDecoder.decodeDoubleForKey("constant"))
-        self.active = aDecoder.decodeBoolForKey("active")
-    }
-    
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.constraintID, forKey: "constraintID")
-        aCoder.encodeObject(self.sourceClass, forKey: "sourceClass")
-        aCoder.encodeInteger(self.sourceAttribute.rawValue, forKey: "sourceAttribute")
-        
-        aCoder.encodeObject(self.destinationClass, forKey: "destinationClass")
-        aCoder.encodeInteger(self.destinationAttribute.rawValue, forKey: "destinationAttribute")
-        
-        aCoder.encodeObject(self.label, forKey: "label")
-        aCoder.encodeObject(self.location?.serializedRepresentation, forKey: "location")
-        aCoder.encodeDouble(Double(self.multiplier), forKey: "multiplier")
-        aCoder.encodeDouble(Double(self.constant), forKey: "constant")
-        aCoder.encodeBool(self.active, forKey: "active")
+        sourceAttribute = constraint.firstAttribute.portableValue
+        destinationAttribute = constraint.secondAttribute.portableValue
     }
 }
-
-
 
 
 private func extractConstraintsFromView(view : UIView) -> [DLSConstraintDescription] {
