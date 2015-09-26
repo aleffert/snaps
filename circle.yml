@@ -18,8 +18,8 @@ test:
           build
         - xctool
           -reporter pretty
-          -reporter junit:$CIRCLE_TEST_REPORTS/xcode/ios-results.xml
-          -reporter plain:$CIRCLE_ARTIFACTS/ios-xctool.log
+          -reporter junit:$CIRCLE_TEST_REPORTS/xcode/osx-results.xml
+          -reporter plain:$CIRCLE_ARTIFACTS/osx-xctool.log
           -sdk macosx
           -workspace "Snaps.xcworkspace"
           -scheme "Dials.app + Snaps"
