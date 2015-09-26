@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DLSConstraintDescription : NSObject <NSCoding>
 
+@property (copy, nonatomic) NSString* affectedViewID;
 @property (copy, nonatomic, nullable) NSString* label;
 @property (copy, nonatomic) NSString* constraintID;
 
@@ -20,9 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign, nonatomic) NSUInteger locationLine;
 
 @property (copy, nonatomic) NSString* sourceClass;
+@property (copy, nonatomic, nullable) NSString* sourceViewID;
 @property (copy, nonatomic) NSString* sourceAttribute;
 
 @property (copy, nonatomic, nullable) NSString* destinationClass;
+@property (copy, nonatomic, nullable) NSString* destinationViewID;
 @property (copy, nonatomic, nullable) NSString* destinationAttribute;
 
 @property (assign, nonatomic) CGFloat constant;

@@ -11,6 +11,7 @@
 		771421791BB584BA00F0B94E /* DLSConstraintDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 771421771BB5845A00F0B94E /* DLSConstraintDescription.m */; settings = {ASSET_TAGS = (); }; };
 		7714217A1BB649C200F0B94E /* DLSConstraintDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 771421761BB5845A00F0B94E /* DLSConstraintDescription.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		771421861BB6504700F0B94E /* Snaps.h in Headers */ = {isa = PBXBuildFile; fileRef = 771421851BB6504700F0B94E /* Snaps.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		771421881BB6E17E00F0B94E /* ConstraintView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 771421871BB6E17E00F0B94E /* ConstraintView.xib */; settings = {ASSET_TAGS = (); }; };
 		77176C4E1BB4335100431544 /* DLSViewsPlugin+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77176C491BB430FD00431544 /* DLSViewsPlugin+SnapKit.swift */; settings = {ASSET_TAGS = (); }; };
 		77176C521BB4369100431544 /* ConstraintsEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77176C511BB4369100431544 /* ConstraintsEditorController.swift */; settings = {ASSET_TAGS = (); }; };
 		77C0BA4C1BB4EFB500B45137 /* ConstraintsEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C0BA4B1BB4EFB500B45137 /* ConstraintsEditorView.xib */; settings = {ASSET_TAGS = (); }; };
@@ -19,15 +20,19 @@
 		77C0BA791BB4F60500B45137 /* DLSSnapKitConstraintEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 77C0BA4D1BB4F18B00B45137 /* DLSSnapKitConstraintEditor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		77EEC9151B6579CD00D9A575 /* Dials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EEC9141B6579CD00D9A575 /* Dials.framework */; };
 		D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0583522DD4F3AC4A36041279 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DC9C7BF62B69B711E43D1C6E /* Pods_Snaps_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F94AFAC635EFD1F6D70C949 /* Pods_Snaps_framework.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0583522DD4F3AC4A36041279 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F94AFAC635EFD1F6D70C949 /* Pods_Snaps_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snaps_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F961E78BA2C95BDCAAF509C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		771421761BB5845A00F0B94E /* DLSConstraintDescription.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DLSConstraintDescription.h; path = Shared/DLSConstraintDescription.h; sourceTree = "<group>"; };
 		771421771BB5845A00F0B94E /* DLSConstraintDescription.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = DLSConstraintDescription.m; path = Shared/DLSConstraintDescription.m; sourceTree = "<group>"; };
 		771421851BB6504700F0B94E /* Snaps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Snaps.h; path = iOS/Snaps.h; sourceTree = SOURCE_ROOT; };
-		77176C431BB3B5D900431544 /* Snaps.dialsplugin.dialsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snaps.dialsplugin.dialsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		771421871BB6E17E00F0B94E /* ConstraintView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConstraintView.xib; path = Desktop/ConstraintView.xib; sourceTree = SOURCE_ROOT; };
+		771421891BB6E38700F0B94E /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = "Pods/../build/Debug-iphoneos/SnapKit.framework"; sourceTree = "<group>"; };
+		77176C431BB3B5D900431544 /* Snaps.dialsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snaps.dialsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		77176C491BB430FD00431544 /* DLSViewsPlugin+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "DLSViewsPlugin+SnapKit.swift"; path = "Desktop/DLSViewsPlugin+SnapKit.swift"; sourceTree = SOURCE_ROOT; };
 		77176C4F1BB4364A00431544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Desktop/Info.plist; sourceTree = SOURCE_ROOT; };
 		77176C511BB4369100431544 /* ConstraintsEditorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstraintsEditorController.swift; path = Desktop/ConstraintsEditorController.swift; sourceTree = SOURCE_ROOT; };
@@ -39,6 +44,8 @@
 		77E2FFB51B642AE800A95664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77EEC9141B6579CD00D9A575 /* Dials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dials.framework; path = "Pods/Dials/build/Debug-iphoneos/Dials.framework"; sourceTree = "<group>"; };
 		97553EF775315904DCE1FFCB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		D1EE28499C6426BC8577489A /* Pods-Snaps.dialsplugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snaps.dialsplugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snaps.dialsplugin/Pods-Snaps.dialsplugin.release.xcconfig"; sourceTree = "<group>"; };
+		E590A3BE5267F69614514B52 /* Pods-Snaps.dialsplugin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snaps.dialsplugin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Snaps.dialsplugin/Pods-Snaps.dialsplugin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +62,7 @@
 			files = (
 				77EEC9151B6579CD00D9A575 /* Dials.framework in Frameworks */,
 				D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */,
+				DC9C7BF62B69B711E43D1C6E /* Pods_Snaps_framework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,8 @@
 			children = (
 				97553EF775315904DCE1FFCB /* Pods.debug.xcconfig */,
 				2F961E78BA2C95BDCAAF509C /* Pods.release.xcconfig */,
+				E590A3BE5267F69614514B52 /* Pods-Snaps.dialsplugin.debug.xcconfig */,
+				D1EE28499C6426BC8577489A /* Pods-Snaps.dialsplugin.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -116,7 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				77E2FFB11B642AE800A95664 /* Snaps.framework */,
-				77176C431BB3B5D900431544 /* Snaps.dialsplugin.dialsplugin */,
+				77176C431BB3B5D900431544 /* Snaps.dialsplugin */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -124,6 +134,7 @@
 		77E2FFB31B642AE800A95664 /* Desktop */ = {
 			isa = PBXGroup;
 			children = (
+				771421871BB6E17E00F0B94E /* ConstraintView.xib */,
 				77C0BA4B1BB4EFB500B45137 /* ConstraintsEditorView.xib */,
 				77176C511BB4369100431544 /* ConstraintsEditorController.swift */,
 				77176C531BB4372E00431544 /* BridgingHeader.h */,
@@ -144,8 +155,10 @@
 		9EA0C05A0EBDCC9D7D3E3637 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				771421891BB6E38700F0B94E /* SnapKit.framework */,
 				77EEC9141B6579CD00D9A575 /* Dials.framework */,
 				0583522DD4F3AC4A36041279 /* Pods.framework */,
+				2F94AFAC635EFD1F6D70C949 /* Pods_Snaps_framework.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,19 +193,17 @@
 			);
 			name = Snaps.dialsplugin;
 			productName = "Dials-SnapKit";
-			productReference = 77176C431BB3B5D900431544 /* Snaps.dialsplugin.dialsplugin */;
+			productReference = 77176C431BB3B5D900431544 /* Snaps.dialsplugin */;
 			productType = "com.apple.product-type.bundle";
 		};
 		77E2FFB01B642AE800A95664 /* Snaps.framework */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 77E2FFC71B642AE800A95664 /* Build configuration list for PBXNativeTarget "Snaps.framework" */;
 			buildPhases = (
-				0F1994C66097EFFFB17E896C /* Check Pods Manifest.lock */,
 				77E2FFAC1B642AE800A95664 /* Sources */,
 				77E2FFAD1B642AE800A95664 /* Frameworks */,
 				77E2FFAE1B642AE800A95664 /* Headers */,
 				77E2FFAF1B642AE800A95664 /* Resources */,
-				0248E73B563F255FA9C94920 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C0BA4C1BB4EFB500B45137 /* ConstraintsEditorView.xib in Resources */,
+				771421881BB6E17E00F0B94E /* ConstraintView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,39 +268,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		0248E73B563F255FA9C94920 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0F1994C66097EFFFB17E896C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		77176C3F1BB3B5D900431544 /* Sources */ = {
@@ -321,13 +300,14 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/Dials.app/Contents/Headers";
 				INFOPLIST_FILE = Desktop/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.akivaleffert.Dials-SnapKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Snaps;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Desktop/BridgingHeader.h;
@@ -341,13 +321,14 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)/Dials.app/Contents/Headers";
 				INFOPLIST_FILE = Desktop/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.akivaleffert.Dials-SnapKit";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Snaps;
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = Desktop/BridgingHeader.h;
@@ -447,7 +428,6 @@
 		};
 		77E2FFC81B642AE800A95664 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 97553EF775315904DCE1FFCB /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -466,7 +446,6 @@
 		};
 		77E2FFC91B642AE800A95664 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2F961E78BA2C95BDCAAF509C /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;

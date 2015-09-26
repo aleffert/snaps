@@ -18,11 +18,16 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if(self != nil) {
+        DLSDecodeObject(aDecoder, affectedViewID);
+        DLSDecodeObject(aDecoder, label);
         DLSDecodeObject(aDecoder, constraintID);
+        DLSDecodeObject(aDecoder, locationFile);
+        DLSDecodeInteger(aDecoder, locationLine);
         DLSDecodeObject(aDecoder, sourceClass);
+        DLSDecodeObject(aDecoder, sourceViewID);
         DLSDecodeObject(aDecoder, sourceAttribute);
         DLSDecodeObject(aDecoder, destinationClass);
-        DLSDecodeObject(aDecoder, destinationAttribute);
+        DLSDecodeObject(aDecoder, destinationViewID);
         DLSDecodeObject(aDecoder, destinationAttribute);
         DLSDecodeDouble(aDecoder, constant);
         DLSDecodeDouble(aDecoder, multiplier);
@@ -32,11 +37,16 @@
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
+    DLSEncodeObject(aCoder, affectedViewID);
+    DLSEncodeObject(aCoder, label);
     DLSEncodeObject(aCoder, constraintID);
+    DLSEncodeObject(aCoder, locationFile);
+    DLSEncodeInteger(aCoder, locationLine);
     DLSEncodeObject(aCoder, sourceClass);
+    DLSEncodeObject(aCoder, sourceViewID);
     DLSEncodeObject(aCoder, sourceAttribute);
     DLSEncodeObject(aCoder, destinationClass);
-    DLSEncodeObject(aCoder, destinationAttribute);
+    DLSEncodeObject(aCoder, destinationViewID);
     DLSEncodeObject(aCoder, destinationAttribute);
     DLSEncodeDouble(aCoder, constant);
     DLSEncodeDouble(aCoder, multiplier);

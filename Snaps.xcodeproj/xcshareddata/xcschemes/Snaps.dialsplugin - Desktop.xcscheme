@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "77176C421BB3B5D900431544"
-               BuildableName = "Snaps.dialsplugin.dialsplugin"
+               BuildableName = "Snaps.dialsplugin"
                BlueprintName = "Snaps.dialsplugin"
                ReferencedContainer = "container:Snaps.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77176C421BB3B5D900431544"
-            BuildableName = "Snaps.dialsplugin.dialsplugin"
+            BuildableName = "Snaps.dialsplugin"
             BlueprintName = "Snaps.dialsplugin"
             ReferencedContainer = "container:Snaps.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "77176C421BB3B5D900431544"
-            BuildableName = "Snaps.dialsplugin.dialsplugin"
+            BuildableName = "Snaps.dialsplugin"
             BlueprintName = "Snaps.dialsplugin"
             ReferencedContainer = "container:Snaps.xcodeproj">
          </BuildableReference>

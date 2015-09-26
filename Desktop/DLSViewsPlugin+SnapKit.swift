@@ -31,6 +31,7 @@ extension LayoutConstraint {
                 constraints.setObject(result, forKey: self)
                 objc_setAssociatedObject(self, &constraintIDKey, result, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
             }
+            constraintIDLock.unlock()
         }
         return result
     }
@@ -69,6 +70,7 @@ extension DLSConstraintDescription {
         self.init()
         let source : AnyObject = constraint.firstItem
         let destination : AnyObject? = constraint.secondItem
+        affectedViewID = DLSViewsPlugin.activePlugin()?.viewIDForView(view) ?? ""
         constraintID = constraint.dls_constraintID
         sourceClass = source.dynamicType.description()
         destinationClass = destination?.dynamicType.description()
@@ -79,6 +81,12 @@ extension DLSConstraintDescription {
         active = constraint.active
         sourceAttribute = constraint.firstAttribute.portableValue
         destinationAttribute = constraint.secondAttribute.portableValue
+        if let sourceView = source as? UIView {
+            sourceViewID = DLSViewsPlugin.activePlugin()?.viewIDForView(sourceView)
+        }
+        if let destView = destination as? UIView {
+            destinationViewID = DLSViewsPlugin.activePlugin()?.viewIDForView(destView)
+        }
     }
 }
 
@@ -86,7 +94,7 @@ extension DLSConstraintDescription {
 private func extractConstraintsFromView(view : UIView) -> [DLSConstraintDescription] {
     let constraints = view.constraintsAffectingLayoutForAxis(.Horizontal) + view.constraintsAffectingLayoutForAxis(.Vertical)
     let layoutConstraints = constraints.flatMap { c -> [DLSConstraintDescription] in
-        if let layoutConstraint = c as? LayoutConstraint {
+        if let layoutConstraint = c as? LayoutConstraint where (layoutConstraint.firstItem as? NSObject) == view || (layoutConstraint.secondItem as? NSObject) == view {
             return [DLSConstraintDescription(constraint: layoutConstraint, view: view)]
         }
         else {
