@@ -13,6 +13,3 @@ FOUNDATION_EXPORT double SnapsVersionNumber;
 
 //! Project version string for Snaps.
 FOUNDATION_EXPORT const unsigned char SnapsVersionString[];
-
-#import <Snaps/DLSConstraintDescription.h>
-#import <Snaps/DLSSnapKitConstraintEditor.h>
