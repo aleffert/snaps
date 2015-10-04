@@ -9,6 +9,8 @@
 import UIKit
 import SnapKit
 
+let size = 100
+
 class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -22,8 +24,8 @@ class FirstViewController: UIViewController {
         view.addSubview(trailingView)
         
         leadingView.snp_makeConstraints {make in
-            make.width.equalTo(100)
-            make.height.equalTo(100)
+            make.width.equalTo(size)
+            make.height.equalTo(size)
             make.leading.equalTo(view).offset(50)
             make.centerY.equalTo(view)
         }
