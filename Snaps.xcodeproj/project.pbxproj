@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		771421861BB6504700F0B94E /* Snaps.h in Headers */ = {isa = PBXBuildFile; fileRef = 771421851BB6504700F0B94E /* Snaps.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7767D6411BC04A4B00A3A301 /* SnapsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767D6401BC04A4B00A3A301 /* SnapsPlugin.swift */; settings = {ASSET_TAGS = (); }; };
+		7767D6431BC04CAB00A3A301 /* ConstraintInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767D6421BC04CAB00A3A301 /* ConstraintInfo.swift */; settings = {ASSET_TAGS = (); }; };
+		7767D6441BC04CAB00A3A301 /* ConstraintInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767D6421BC04CAB00A3A301 /* ConstraintInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		77C490F71BB7A26D00345BEA /* DLSViewsPlugin+SnapKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C490F61BB7A24F00345BEA /* DLSViewsPlugin+SnapKitSupport.swift */; settings = {ASSET_TAGS = (); }; };
 		77EEC9151B6579CD00D9A575 /* Dials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EEC9141B6579CD00D9A575 /* Dials.framework */; };
 		D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0583522DD4F3AC4A36041279 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -23,9 +26,11 @@
 		77176C431BB3B5D900431544 /* Snaps.dialsplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Snaps.dialsplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		77176C4F1BB4364A00431544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Desktop/Info.plist; sourceTree = SOURCE_ROOT; };
 		77176C531BB4372E00431544 /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BridgingHeader.h; path = Desktop/BridgingHeader.h; sourceTree = SOURCE_ROOT; };
+		7767D6401BC04A4B00A3A301 /* SnapsPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapsPlugin.swift; path = Desktop/SnapsPlugin.swift; sourceTree = SOURCE_ROOT; };
+		7767D6421BC04CAB00A3A301 /* ConstraintInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstraintInfo.swift; path = Shared/ConstraintInfo.swift; sourceTree = "<group>"; };
+		7767D6501BC0A85B00A3A301 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Desktop/Info.plist; sourceTree = SOURCE_ROOT; };
 		77C490F61BB7A24F00345BEA /* DLSViewsPlugin+SnapKitSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "DLSViewsPlugin+SnapKitSupport.swift"; path = "iOS/DLSViewsPlugin+SnapKitSupport.swift"; sourceTree = SOURCE_ROOT; };
 		77E2FFB11B642AE800A95664 /* Snaps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Snaps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		77E2FFB51B642AE800A95664 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77EEC9141B6579CD00D9A575 /* Dials.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dials.framework; path = "Pods/Dials/build/Debug-iphoneos/Dials.framework"; sourceTree = "<group>"; };
 		97553EF775315904DCE1FFCB /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		D1EE28499C6426BC8577489A /* Pods-Snaps.dialsplugin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Snaps.dialsplugin.release.xcconfig"; path = "Pods/Target Support Files/Pods-Snaps.dialsplugin/Pods-Snaps.dialsplugin.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 		77C0BA501BB4F1A400B45137 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				7767D6421BC04CAB00A3A301 /* ConstraintInfo.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -115,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				77176C531BB4372E00431544 /* BridgingHeader.h */,
+				7767D6401BC04A4B00A3A301 /* SnapsPlugin.swift */,
 				77E2FFB41B642AE800A95664 /* Supporting Files */,
 			);
 			name = Desktop;
@@ -124,7 +131,7 @@
 		77E2FFB41B642AE800A95664 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				77E2FFB51B642AE800A95664 /* Info.plist */,
+				7767D6501BC0A85B00A3A301 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7767D6441BC04CAB00A3A301 /* ConstraintInfo.swift in Sources */,
+				7767D6411BC04A4B00A3A301 /* SnapsPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +263,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7767D6431BC04CAB00A3A301 /* ConstraintInfo.swift in Sources */,
 				77C490F71BB7A26D00345BEA /* DLSViewsPlugin+SnapKitSupport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
