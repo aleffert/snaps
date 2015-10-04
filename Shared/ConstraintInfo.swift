@@ -16,16 +16,16 @@ let PluginIdentifier = "com.akivaleffert.snaps"
 
 class SourceLocation : NSObject, DLSSourceLocation {
     let file : String
-    let line : UInt
+    let line : Int
     
-    init(file : String, line : UInt) {
+    init(file : String, line : Int) {
         self.file = file
         self.line = line
     }
     
     required init?(coder: NSCoder) {
         file = (coder.decodeObjectOfClass(NSString.self, forKey: "file")!) as String
-        line = UInt(coder.decodeIntegerForKey("line"))
+        line = coder.decodeIntegerForKey("line")
         super.init()
     }
     
