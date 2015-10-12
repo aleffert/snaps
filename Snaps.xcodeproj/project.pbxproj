@@ -13,8 +13,8 @@
 		7767D6441BC04CAB00A3A301 /* ConstraintInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767D6421BC04CAB00A3A301 /* ConstraintInfo.swift */; settings = {ASSET_TAGS = (); }; };
 		77C490F71BB7A26D00345BEA /* DLSViewsPlugin+SnapKitSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C490F61BB7A24F00345BEA /* DLSViewsPlugin+SnapKitSupport.swift */; settings = {ASSET_TAGS = (); }; };
 		77EEC9151B6579CD00D9A575 /* Dials.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77EEC9141B6579CD00D9A575 /* Dials.framework */; };
-		D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0583522DD4F3AC4A36041279 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		DC9C7BF62B69B711E43D1C6E /* Pods_Snaps_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F94AFAC635EFD1F6D70C949 /* Pods_Snaps_framework.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		D5EFAA9641116E4678E63152 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0583522DD4F3AC4A36041279 /* Pods.framework */; };
+		DC9C7BF62B69B711E43D1C6E /* Pods_Snaps_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F94AFAC635EFD1F6D70C949 /* Pods_Snaps_framework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */

@@ -88,15 +88,32 @@ class SnapsPlugin : NSObject, Plugin, ConstraintPlugin, CodeHelperOwner {
         let body = line[range].stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
         return (body: body, range: range)
     }
+    
+    private func errorFromMessage(message : String) -> NSError {
+        return NSError(domain: "com.akivaleffert.snaps", code: -1, userInfo: [NSLocalizedDescriptionKey : "Couldn't save." + message])
+    }
+    
+    private func error(location : DLSSourceLocation, error : SaveError) -> NSError {
+        let file = NSURL(fileURLWithPath: location.file).lastPathComponent ?? "Unknown"
+        let line = location.line
+        switch error {
+        case .InternalError: return errorFromMessage("Internal error. Sorry!")
+        case .MissingEqualTo: return errorFromMessage("Unable to parse constraint at \(file):\(line). Expecting relation (lessThanOrEqualTo, equalTo, greaterThanOrEqualTo) but none found.")
+        case .UnableToFindLine: return errorFromMessage("Unable to find line \(line) of \(file). Did you change it since starting your app?")
+        case .UnableToParse: return errorFromMessage("Unable to parse a valid expression at \(file):\(line).")
+        }
+    }
 
-    // This is pretty hacky. TODO: Expand to more cases. Probably should actually just do 
+    // This is pretty hacky. TODO: Expand to more cases. Probably should actually just do
     // an expression parse starting at the given line.
     func saveConstraint(info: DLSAuxiliaryConstraintInformation, constant : CGFloat) throws {
-        func error(error : SaveError) -> NSError {
-            return error as NSError
+        
+        guard let location = info.location else {
+            throw errorFromMessage("Internal Error. Sorry!")
         }
-        guard let lineInfo = lineAtLocation(info.location) else {
-            throw error(.UnableToFindLine)
+        
+        guard let lineInfo = lineAtLocation(location) else {
+            throw error(location, error: .UnableToFindLine)
         }
         let line = lineInfo.0
         var lines = lineInfo.1
@@ -113,7 +130,7 @@ class SnapsPlugin : NSObject, Plugin, ConstraintPlugin, CodeHelperOwner {
             else {
                 // Otherwise, it's a symbol. Try to update the symbol
                 guard let codeHelper = codeHelper else {
-                    throw error(.InternalError)
+                    throw error(location, error: .InternalError)
                 }
                 try codeHelper.updateSymbol(body, toCode: code, inLanguage: .Swift, atURL: NSURL(fileURLWithPath:info.location!.file))
             }
@@ -121,7 +138,7 @@ class SnapsPlugin : NSObject, Plugin, ConstraintPlugin, CodeHelperOwner {
         else {
             // No offset. So look if we're setting a value directly
             guard let (body, range) = argumentOfFunction("equalTo", inString:line) else {
-                throw error(.UnableToParse)
+                throw error(location, error: .MissingEqualTo)
             }
             let newLine : String
             if isNumeric(body) {
@@ -131,15 +148,15 @@ class SnapsPlugin : NSObject, Plugin, ConstraintPlugin, CodeHelperOwner {
                 do {
                     // Try to find the symbol and replace
                     guard let codeHelper = codeHelper else {
-                        throw SaveError.InternalError
+                        throw error(location, error: .InternalError)
                     }
                     try codeHelper.updateSymbol(body, toCode: code, inLanguage: .Swift, atURL: NSURL(fileURLWithPath:info.location!.file))
                     return
                 }
-                catch {
+                catch _ {
                     // Otherwise, just insert an "offset" operation
                     guard let insertion = line.rangeOfString(")", options: NSStringCompareOptions(), range: Range(start:range.endIndex, end:line.endIndex), locale: nil) else {
-                        throw SaveError.UnableToParse
+                        throw error(location, error: .UnableToParse)
                     }
                     newLine = line.stringByReplacingCharactersInRange(Range(start:insertion.endIndex, end:insertion.endIndex), withString: ".offset(\(code))")
                 }
