@@ -14,7 +14,7 @@ import SnapKit
 extension SnapsAuxiliaryConstraintInfo {
     
     convenience init?(constraint : NSLayoutConstraint) {
-        if let location = (constraint as? LayoutConstraint)?.snp_constraint?.location {
+        if let location = (constraint as? LayoutConstraint)?.location {
             self.init(location : SourceLocation(file: location.file, line: Int(location.line)))
         }
         else {
@@ -30,7 +30,7 @@ class ConstraintInformer : NSObject, DLSConstraintInformer {
 }
 
 extension DLSViewsPlugin {
-    public func enableSnapKitSupport() {
+    public func enableSnaps() {
         DLSViewsPlugin.activePlugin()?.addAuxiliaryConstraintInformer(ConstraintInformer())
     }
 }
