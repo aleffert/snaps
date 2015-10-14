@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.description = <<-DESC
                   Snaps combines [Dials](https://github.com/aleffert/dials) and [SnapKit](https://github.com/SnapKit/SnapKit) to let you make changes to your autolayout constraints at runtime and then send them back to your code with just one button.
                   DESC
-  s.summary     = "Snaps combines [Dials](https://github.com/aleffert/dials) and [SnapKit](https://github.com/SnapKit/SnapKit) to let you make changes to your autolayout constraints at runtime and then send them back to your code."
+  s.summary     = "Snaps lets you make changes to your autolayout constraints at runtime and then send them back to your code."
   s.homepage    = "https://github.com/aleffert/snaps"
   s.license     = { :type => 'MIT', :file => 'LICENSE' }
   s.author      = { "Akiva Leffert" => "aleffert@gmail.com" }
