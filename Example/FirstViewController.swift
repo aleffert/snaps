@@ -31,7 +31,7 @@ class FirstViewController: UIViewController {
         }
         
         trailingView.snp_makeConstraints{make in
-            make.width.equalTo(leadingView)
+            make.width.equalTo(leadingView).offset(20)
             make.height.equalTo(leadingView)
             make.trailing.equalTo(view).offset(-50)
             make.centerY.equalTo(view)

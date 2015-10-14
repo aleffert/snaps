@@ -16,10 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        #if DEBUG
-            DLSDials.shared().start()
-            DLSViewsPlugin.activePlugin()?.enableSnaps()
-        #endif
+        DLSDials.shared().start()
+        DLSViewsPlugin.activePlugin()?.enableSnaps()
         return true
     }
 
