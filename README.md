@@ -1,6 +1,6 @@
 # dials-snapkit
 
-Snaps combines [Dials](https://github.com/aleffert/dials) and [SnapKit](https://github.com/SnapKit/SnapKit) to let you make changes to your autolayout constraints at runtime and then send them back to your code with just one button.
+Snaps combines [Dials](https://github.com/aleffert/dials) and [SnapKit](https://github.com/SnapKit/SnapKit) to let you make changes to your autolayout constraints at runtime and then send them back to your code with just one button. It also lets you see the actual variable names from your code in the Dials constraint debugger.
 
 [See it in action](https://aleffert.github.io/snaps/Documentation/snaps-example.html)
 
