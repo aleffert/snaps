@@ -41,6 +41,7 @@ Once you have the files downloaded, you will need to do the following:
 3. Still within "Build Phases", find a "Copy Files" build phase whose "Destination" is "Frameworks" (you needed to add this when setting up Dials).
 4. Hit the "+" button and add "Snaps.framework" to your Copy Files phase.
 5. Go find where you start Dials and add a call to enable snaps:
+
     Objective-C:
 
     ```
