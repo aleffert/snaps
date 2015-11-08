@@ -27,9 +27,9 @@ github "aleffert/Snaps"
 
 ### Fetch using Submodules
 
-You can also just add Dials as a submodule directly:
+You can also just add Snaps as a submodule directly:
 ```
-git submodule add Libraries/Dials git@github.com:aleffert/dials.git
+git submodule add Libraries/Snaps git@github.com:aleffert/snaps.git
 ```
 
 ### Configuring Snaps in your project
@@ -42,11 +42,14 @@ Once you have the files downloaded, you will need to do the following:
 4. Hit the "+" button and add "Snaps.framework" to your Copy Files phase.
 5. Go find where you start Dials and add a call to enable snaps:
     Objective-C:
+
     ```
     [[DLSDials shared] start]
     [[DLSViewsPlugin activePlugin] enableSnaps]
     ```
+
     Swift:
+
     ```
     DLSDials.shared()?.start()
     DLSViewsPlugin.activePlugin()?.enableSnaps()
