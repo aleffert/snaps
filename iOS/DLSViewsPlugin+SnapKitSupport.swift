@@ -14,7 +14,7 @@ import SnapKit
 extension SnapsAuxiliaryConstraintInfo {
     
     convenience init?(constraint : NSLayoutConstraint) {
-        if let location = (constraint as? LayoutConstraint)?.location {
+        if let location = (constraint as? LayoutConstraint)?.snp_location {
             self.init(location : SourceLocation(file: location.file, line: Int(location.line)))
         }
         else {
